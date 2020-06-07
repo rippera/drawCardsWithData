@@ -1,0 +1,85 @@
+.product_card {
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.75);
+  min-height: 400px;
+  background: #f6f6f6;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 14px;
+  /* width: 90%; */
+}
+.product_img {
+  width: 100%;
+  height: 175px;
+  position: relative;
+  border-bottom: 1px solid rgba(227, 227, 227, 1);
+}
+.img_fluid {
+  height: 100%;
+  width: 100%;
+}
+
+.product_img img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.sale {
+  display: none;
+  width: 50px;
+  height: 50px;
+  font-family: 'DejaVu Sans book';
+  font-size: 14px;
+  color: #ffffff;
+  background: #ff544d;
+  position: absolute;
+  right: 25px;
+  bottom: -20px;
+  border-radius: 50%;
+  text-align: center;
+  -webkit-box-shadow: 2px 4px 5px #ffd0ce;
+  box-shadow: 2px 4px 5px #ffd0ce;
+  z-index: 20;
+  line-height: 55px;
+  font-weight: bolder;
+}
+.product_card-info {
+  padding: 30px 20px 0px 20px;
+  background: #f6f6f6;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.cart_icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  flex-direction: column;
+}
+#pagination_wrapper ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#pagination_wrapper li {
+  color: #fff;
+  background: #17a2b8;
+  border-color: #17a2b8;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* background-color: transparent; */
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  margin-right: 5px;
+  cursor: pointer;
+  list-style: none;
+}
+.current_page {
+  border: 1px dashed#ffffff !important;
+}
