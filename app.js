@@ -24,8 +24,9 @@ fetch('./db/data.json')
       paginationBox: '#pagination_wrapper',
       cardNumbers: 6,
       paginationNumbers: 5,
+      isPagination: true,
     };
 
-    let cardview = new CardViewer(options);
+    let cardview = new CardView(options);
     cardview.setData(data);
   });

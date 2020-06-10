@@ -62,8 +62,7 @@
 }
 #pagination_wrapper li {
   color: #fff;
-  background: #17a2b8;
-  border-color: #17a2b8;
+  background: #f8e353;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -71,7 +70,6 @@
   -ms-user-select: none;
   user-select: none;
   /* background-color: transparent; */
-  border: 1px solid transparent;
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
@@ -79,7 +77,13 @@
   margin-right: 5px;
   cursor: pointer;
   list-style: none;
+  transition: all 0.3s ease;
+}
+#pagination_wrapper li:hover {
+  background: #444444 !important;
+  color: #ffffff !important;
 }
 .current_page {
-  border: 1px dashed#ffffff !important;
+  background: #444444 !important;
+  color: #ffffff !important;
 }

@@ -1,4 +1,4 @@
-class CardViewer {
+class CardView {
   constructor(options) {
     this.container = document.querySelector(options.container);
     this.options = options;
@@ -6,11 +6,15 @@ class CardViewer {
     this.viewSource = null;
     this.row = document.createElement('div');
     this.row.classList.add('row');
-    this.ul = document.createElement('ul');
+
     this.paginationBox = document.querySelector(options.paginationBox);
-    this.paginationBox.appendChild(this.ul);
+    this.ul = document.createElement('ul');
     this.cards = options.cardNumbers;
     this.pagNumbers = options.paginationNumbers;
+    this.paginBool = options.isPagination;
+    if (this.paginBool == true) {
+      this.paginationBox.appendChild(this.ul);
+    }
   }
 
   setData(data) {
@@ -19,10 +23,14 @@ class CardViewer {
     this.state = {
       querySet: this.viewSource,
       page: 1,
-      rows: this.cards,
-      window: this.pagNumbers,
+      rows: this.cards || 5,
+      window: this.pagNumbers || 5,
     };
-    this.DrawCards();
+    if (this.paginBool == true) {
+      this.DrawCardsWithPaging();
+    } else {
+      this.DrawCardsWithLoadMore();
+    }
   }
   pagination(querySet, page, rows) {
     let trimStart = (page - 1) * rows;
@@ -74,7 +82,7 @@ class CardViewer {
       const element = wrapper.children[i];
       element.addEventListener('click', () => {
         this.state.page = Number(element.value);
-        this.DrawCards();
+        this.DrawCardsWithPaging();
       });
     }
   }
@@ -91,7 +99,7 @@ class CardViewer {
       }
     }
   }
-  DrawCards() {
+  DrawCardsWithPaging() {
     this.row.innerHTML = '';
     let data = this.pagination(
       this.state.querySet,
@@ -110,5 +118,8 @@ class CardViewer {
     this.pageButtons(data.pages);
 
     this.markPage();
+  }
+  DrawCardsWithLoadMore() {
+    console.log('load more cards');
   }
 }
