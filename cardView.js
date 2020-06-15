@@ -6,12 +6,15 @@ class CardView {
     this.viewSource = null;
     this.row = document.createElement('div');
     this.row.classList.add('row');
-
+    this.loadMoreBtn = document.querySelector(this.options.loadMore);
     this.paginationBox = document.querySelector(options.paginationBox);
     this.ul = document.createElement('ul');
     this.cards = options.cardNumbers;
     this.pagNumbers = options.paginationNumbers;
     this.paginBool = options.isPagination;
+    if (!this.options.render) {
+      console.log('Please insert render function in your options');
+    }
     if (this.paginBool == true) {
       this.paginationBox.appendChild(this.ul);
     }
@@ -23,7 +26,7 @@ class CardView {
     this.state = {
       querySet: this.viewSource,
       page: 1,
-      rows: this.cards || 5,
+      rows: this.cards || 6,
       window: this.pagNumbers || 5,
     };
     if (this.paginBool == true) {
@@ -83,6 +86,8 @@ class CardView {
       element.addEventListener('click', () => {
         this.state.page = Number(element.value);
         this.DrawCardsWithPaging();
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
       });
     }
   }
@@ -110,7 +115,6 @@ class CardView {
     myList.forEach((item) => {
       let div = document.createElement('div');
       div.className = this.options.col;
-      //   div.innerHTML = this.options.view;
       div.innerHTML = this.options.render(item);
       this.row.appendChild(div);
     });
@@ -120,6 +124,38 @@ class CardView {
     this.markPage();
   }
   DrawCardsWithLoadMore() {
-    console.log('load more cards');
+    let offset = 0;
+    let item_count = 6;
+    if (this.viewSource.length > item_count) {
+      item_count = item_count;
+    } else {
+      item_count = this.viewSource.length;
+    }
+    for (let i = offset; i < item_count; i++) {
+      const item = this.viewSource[i];
+      let div = document.createElement('div');
+      div.className = this.options.col;
+      div.innerHTML = this.options.render(item);
+      this.row.appendChild(div);
+    }
+    if (item_count == this.viewSource.length) {
+      this.loadMoreBtn.style.display = 'none';
+    }
+    this.container.appendChild(this.row);
+    this.loadMoreBtn.addEventListener('click', () => {
+      offset += 6;
+      item_count += 6;
+      for (let i = offset; i < item_count; i++) {
+        const item = this.viewSource[i];
+        let div = document.createElement('div');
+        div.className = this.options.col;
+        div.innerHTML = this.options.render(item);
+        this.row.appendChild(div);
+      }
+      this.container.appendChild(this.row);
+      if (item_count === this.viewSource.length) {
+        this.loadMoreBtn.style.display = 'none';
+      }
+    });
   }
 }

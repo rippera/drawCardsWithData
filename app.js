@@ -21,9 +21,9 @@ fetch('./db/data.json')
       container: '#products',
       col: 'col-lg-3 col-lg-4',
       render: renderCard,
+      // loadMore: '#loadMore',
+      cardNumbers: 20,
       paginationBox: '#pagination_wrapper',
-      cardNumbers: 6,
-      paginationNumbers: 5,
       isPagination: true,
     };
 

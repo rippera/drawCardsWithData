@@ -1,3 +1,7 @@
+html,
+body {
+  scroll-behavior: smooth;
+}
 .product_card {
   border-radius: 10px;
   -webkit-box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.6);
@@ -62,7 +66,8 @@
 }
 #pagination_wrapper li {
   color: #fff;
-  background: #f8e353;
+  /* background: #f8e353; */
+  background: #2b9b2b;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
