@@ -11,7 +11,7 @@ Template Html:
 </div>
 ```
 
-## OR
+## OR With LoadMore
 
 ```html
 <div class="some_div">
@@ -54,7 +54,7 @@ let cardview = new CardView(options);
 cardview.setData(data);
 ```
 
-## OR
+## OR Products Options With LoadMore
 
 ```javascript
 let options = {
