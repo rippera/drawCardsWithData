@@ -27,15 +27,16 @@ let renderCard = function (item) {
   return `
         <div class='product_card ' data-product=''>
             <div class='product_card-info'>
-            <div class='product_title'>PRODUCT_NAME</div>
+            <div class='product_title'>${item.PRODUCT_NAME}</div>
 
             <div class='product_prices  d-flex align-items-center justify-content-end'>
-                <div class='product_price'>item.PORUCT_PRICE</div>
+                <div class='product_price'>${item.PORUCT_PRICE}</div>
             </div>
             </div>
         </div>
       `;
 };
+item from products data
 ```
 
 ## Products Options With Pagination
