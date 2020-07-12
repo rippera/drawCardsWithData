@@ -21,6 +21,8 @@ Products With Pagination -----
 </div>
 ```
 
+## Product Render Function
+
 ```javascript
 let renderCard = function (item) {
   return `
@@ -36,6 +38,8 @@ let renderCard = function (item) {
       `;
 };
 ```
+
+## Products Options With Pagination
 
 ```javascript
 let options = {
