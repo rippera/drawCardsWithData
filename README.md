@@ -14,7 +14,6 @@ Template Html:
 ## OR
 
 ```html
-Products With Pagination -----
 <div class="some_div">
   <div id="products"></div>
   <button id="loadMore">loadMore</button>
